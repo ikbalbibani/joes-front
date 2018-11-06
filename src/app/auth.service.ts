@@ -9,9 +9,9 @@ export class AuthService {
   constructor( private http: HttpClient) { }
 
   checkUser(email, pass) {
-    return this.http.post('http://d10619ad.ngrok.io/Employe/auth', {
+    return this.http.post('http://localhost:444/Employes/auth', {
       'login': email,
-      'pass' : pass
+      'mdp' : pass
     });
   }
 }

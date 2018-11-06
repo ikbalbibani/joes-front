@@ -8,16 +8,27 @@ import { PageAdminComponent } from './page-admin/page-admin.component';
 import {HttpClientModule} from '@angular/common/http';
 import { GestionComponent } from './gestion/gestion.component';
 import {AuthGuard} from './auth.guard';
+import { AjouterEmpComponent } from './ajouter-emp/ajouter-emp.component';
+import { ModifierEmpComponent } from './modifier-emp/modifier-emp.component';
+import { DossierAdminComponent } from './dossier-admin/dossier-admin.component';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageAdminComponent,
-    GestionComponent
+    GestionComponent,
+    AjouterEmpComponent,
+    ModifierEmpComponent,
+    DossierAdminComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -26,8 +37,27 @@ import {AuthGuard} from './auth.guard';
       {
         path: 'admin',
         component: PageAdminComponent,
-        canActivate : [AuthGuard]
+        canActivate : [AuthGuard],
+        children: [{
+          path : 'gestion',
+          component: GestionComponent
+        }, {
+          path: 'ajouter',
+          component : AjouterEmpComponent
+        }, {
+          path: 'modifier/:id',
+          component : ModifierEmpComponent
+        },  {
+          path: 'dossier',
+          component : DossierAdminComponent
+        }, {
+          path: 'details/:id',
+          component : DetailsComponent
+        }
+        ]
+
       }
+
 
     ]), HttpClientModule
   ],

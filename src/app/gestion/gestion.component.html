@@ -1,3 +1,42 @@
-<p>
-  gestion works!
-</p>
+
+<h2>Liste Employé</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+    <tr>
+      <th>CIN</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <ng-container *ngFor="let user of users$" >
+    <tr>
+      <a routerLink="../details/{{user.cin}}">{{user.cin}}</a>
+      <td>{{user.nom}}</td>
+      <td>{{user.prenom}}</td>
+      <td> <button  class="btn btn-info btn-lg" routerLink="../modifier/{{user.cin}}">
+        <span class="glyphicon glyphicon-pencil"></span> Modifier
+      </button></td>
+      <td> <button  class="btn btn-info btn-lg" routerLink="../dossier">
+        <span class="glyphicon glyphicon-file"></span>Dossier
+      </button></td>
+
+    </tr>
+  </ng-container>
+
+    <router-outlet></router-outlet>
+  </table>
+
+  <footer>
+    <button  class="btn btn-info btn-lg" routerLink="../ajouter">
+      <span class="glyphicon glyphicon-plus"></span> Ajouter
+    </button>
+
+
+  </footer>
+
+</div>
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth.service';
-import {AuthGuard} from '../auth.guard';
+
 
 @Component({
   selector: 'app-login',
@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   login = '';
   pass = '';
   user;
-  test= '';
-  constructor( private router: Router, private service: AuthService, private guard: AuthGuard) { }
+  test = '';
+  constructor( private router: Router, private service: AuthService) { }
 
   onLog(e) {
     e.preventDefault();
@@ -23,12 +23,10 @@ export class LoginComponent implements OnInit {
     this.pass = e.target.querySelector('#inputPassword').value;
     this.service.checkUser(this.login, this.pass).subscribe( result => {
       this.user = result;
-     if (this.user.found) {
+     if (this.user != null) {
          this.router.navigateByUrl('admin');
          localStorage.setItem('isLoggedIn', 'true');
-         localStorage.setItem('nom', this.user.Employe.nom_e);
-         localStorage.setItem('prenom', this.user.Employe.prenom_e);
-         localStorage.setItem('cin', this.user.Employe.cin_e);
+         localStorage.setItem('cin', this.user.cin);
      }
     });
 
