@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Ajouter Employé</h4>
+
+        </div>
+        <div class="card-body">
+          <form  (ngSubmit)="onSubmit($event)" >
+            <input required="true" type="hidden" >
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label>CIN</label>
+                  <input required="true" type="text" class="form-control" id="cin">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label>Nom</label>
+                  <input required="true" type="text" class="form-control" id="nom">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Prenom</label>
+                  <input required="true" type="email" class="form-control" id="pr">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Adresse</label>
+                  <input required="true" type="text" class="form-control" id="adr">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Téléphone</label>
+                  <input required="true" type="text" class="form-control" id="tel">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Salaire</label>
+                  <input required="true" type="text" class="form-control" id="salaire">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+
+                  <label>Date Naissance</label>
+                  <input required="true" type='Date' class="form-control"  id="daten"/>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Login</label>
+                  <input required="true" type="text" class="form-control" id="login">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+
+                  <label>Mot de passe</label>
+                  <input required="true" type="password" class="form-control"  id="mdp"/>
+
+                </div>
+              </div>
+            </div>
+
+
+        <button  class="btn btn-primary pull-right" type="submit">Ajouter</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
