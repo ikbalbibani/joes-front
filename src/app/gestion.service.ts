@@ -16,7 +16,7 @@ export class GestionService {
   addEmp(body) {
     return this.http.post('http://localhost:444/Employes', body);
   }
-  updateEmp(id, body){
+  updateEmp(id, body) {
     return this.http.put('http://localhost:444/Employes/' + id, body);
   }
 
